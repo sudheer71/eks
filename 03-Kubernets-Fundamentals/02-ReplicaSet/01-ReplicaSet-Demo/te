@@ -1,0 +1,106 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2023-08-08T06:03:44Z"
+  generateName: my-helloworld-rs-
+  labels:
+    app: my-helloworld
+  name: my-helloworld-rs-7vltj
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: my-helloworld-rs
+    uid: 58173a79-0e9d-4caa-8965-97cdec5d25ca
+  resourceVersion: "8678"
+  uid: 8bef0b80-5748-4b2e-874c-385743c3115b
+spec:
+  containers:
+  - image: stacksimplify/kube-helloworld:1.0.0
+    imagePullPolicy: IfNotPresent
+    name: my-helloworld-app
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-7r9bg
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: ip-192-168-63-7.ec2.internal
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-7r9bg
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2023-08-08T06:03:44Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2023-08-08T06:03:49Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2023-08-08T06:03:49Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2023-08-08T06:03:44Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://8e88da771eed6f71522f078006e9b07285d12127c951b872fc38f0d6b57a6c51
+    image: docker.io/stacksimplify/kube-helloworld:1.0.0
+    imageID: docker.io/stacksimplify/kube-helloworld@sha256:eae077a33d55d74407e399fd6e3bfb12cfe98dd1be29173861579584cb175ed8
+    lastState: {}
+    name: my-helloworld-app
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2023-08-08T06:03:48Z"
+  hostIP: 192.168.63.7
+  phase: Running
+  podIP: 192.168.52.248
+  podIPs:
+  - ip: 192.168.52.248
+  qosClass: BestEffort
+  startTime: "2023-08-08T06:03:44Z"

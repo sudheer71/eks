@@ -1,0 +1,33 @@
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: my-backed-service
+#   labels:
+#     app: backend-restapp
+#     tier: backend
+# spec:
+#   #type: ClusterIP is a default service 
+#   selector: 
+#     app: backend-restapp
+#   ports:
+#     - name: http
+#       port: 8080
+#       targetPort: 8080
+
+
+
+apiVersion: v1
+kind: Service
+metadata: 
+  name: my-backed-service
+  labels:
+    app: backend-restapp
+    tier: backend
+spec:
+  #type: Cliuset IP is Default Service
+  selector: 
+    app: backend-restapp
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8080

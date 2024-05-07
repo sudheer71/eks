@@ -1,0 +1,9 @@
+apiVersion:
+kind:
+metadata:
+  
+spec: ## Hear spec is a Dictionary Object Under the spec we have a 3-types of properties under it 
+  replicas: 
+  selector: 
+    matchLabels: ## To identify the pod defination, what ever you defind the loable for you pod you have to define the same for the matchlable, so that replicaset identifys that this is my pod defination that pod defination ensure that it scales accordingly it needs to increse or decrese or every thing 
+  template:
