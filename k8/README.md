@@ -1,3 +1,3 @@
 
 ## kubernets objects
-- pod
+- [pod]
