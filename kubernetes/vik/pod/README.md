@@ -37,5 +37,31 @@ Kubernetes pod
     kubectl get pod <pod-name> -o yaml | grep phase
     ```
     
-- 
-    
+
+- **kubectl -h**
+- **kubectl run -h**  Create and run a particular image in a pod.
+- **kubectl get pods**
+- **kubectl get svc**
+- **kubectl get namespace**
+- **kubectl get pods,svc,namespace**
+- **kubectl get po,svc** —all-namespace All the namespaces
+- **kubectl get po,svc** -A [All the namespaces]
+- **kubectl get po | grep -i ng** [To get the list of pods nginx]
+- **kubectl describe po nginx**
+- **kubectl events** [Prints a table of the most important information about events. You can request events for a namespace, for all namespace, or filtered to only those pertaining to a specified resource.]
+- **kubectl events -n <namespace-name>**
+- **kubectl logs** [Print the logs for a container in a pod or specified resource. If the pod has only one container, the container name is optional]
+- **kubectl logs po/nginx [stored logs]**
+- **kubectl logs -f po/ngnix [follow-up logs/streamed logs]**
+- **kubectl logs -f --timestamps=true po/ngnix**
+- **kubectl logs -f —tail=5 --timestamps=true po/ngnix**
+- **kubectl logs po/ngnix —all-containers=true**
+- **kubectl logs po/nginx -c c1 [container-1]** to get logs from container-1
+- **kubectl logs po/nginx -c c2 [container-2]** to get logs from container-2
+- **kubectl exec -it po/nginx — sh**
+- **kubectl exec -it po/nginx — bash**
+- kubectl exec -it po/nginx — hostname
+- kubectl exec -it po/nginx — curl [localhost](http://localhost)
+- **kubectl exec -it po/nginx —sh -c c1 [container-1]**
+- **kubectl exec -it po/nginx —sh -c c2** **[container-1]**
+-
