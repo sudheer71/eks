@@ -40,4 +40,4 @@ Kubernetes pod
 - 
     
     ![image.png](attachment:7301d8d8-6a26-4aec-a60e-0c92a9b4677c:image.png)
-    
+    ![alt text](<Screenshot 2025-04-14 at 5.23.06 PM.png>)
