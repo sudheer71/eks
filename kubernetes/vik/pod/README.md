@@ -61,7 +61,7 @@ Kubernetes pod
 - **kubectl exec -it po/nginx — sh**
 - **kubectl exec -it po/nginx — bash**
 - **kubectl exec -it po/nginx — hostname**
-- **kubectl exec -it po/nginx — curl [localhost](http://localhost)
+- **kubectl exec -it po/nginx — curl [localhost](http://localhost)**
 - **kubectl exec -it po/nginx —sh -c c1 [container-1]**
 - **kubectl exec -it po/nginx —sh -c c2** **[container-1]**
 -
