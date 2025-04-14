@@ -39,5 +39,5 @@ Kubernetes pod
     
 - 
     
-    ![image.png](attachment:7301d8d8-6a26-4aec-a60e-0c92a9b4677c:image.png)
+    ![image.png](https://github.com/sudheer71/eks/blob/main/kubernetes/vik/images/Screenshot%202025-04-14%20at%205.23.06%E2%80%AFPM.png)
     ![alt text](/Users/muthyalasudheer/Documents/wrokPlace/code/eks/kubernetes/vik/images/Screenshot 2025-04-14 at 5.23.06 PM.png)
