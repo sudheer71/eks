@@ -1,4 +1,3 @@
-
 Kubernetes pod
 
 - Pods are basic scheduling units in Kubernetes. Pods are often ephemeral in nature
@@ -15,7 +14,7 @@ Kubernetes pod
 
 - If c3 wants to talk to c1 or c2, it cannot talk using the [localhost](http://localhost). It can use an IP address of the pod and port for the container, ex: 1.1.1.1:80, and we have services also
 
-Storage
+**Storage**
 
 - By default, c1 cannot access the data in c2, and vice versa. They can't see each other
 - C1 and C2 can share the common storage c4 and create a temp volume in a pod and mount to c1 and c2; then, they can share the common storage; whatever C1 writes in the volume c2 can see it because the c1 and c2 are mounted to common storage volume c4
@@ -23,7 +22,7 @@ Storage
 - Pods are the units of replication in Kubernetes. If your application becomes too popular and a single pod instance can’t carry the load, Kubernetes can be configured to deploy new replicas of your pod to the cluster as necessary.
 - Once the pod is deployed, some data is immutable. You can’t modify the data once the pod is deployed. If you want to change the data, you have to delete the existing pod and apply the new manifest file of the definition file
 
-Pod Lifecycle 
+**Pod Lifecycle** 
 
 - Through its lifecycle, a Pod can attain the following states, starting from Pending to Running
 - A Pod's status can be known from the phase field
@@ -38,4 +37,6 @@ Pod Lifecycle
     kubectl get pod <pod-name> -o yaml | grep phase
     ```
     
-- sample
+- 
+    
+    ![image.png](attachment:7301d8d8-6a26-4aec-a60e-0c92a9b4677c:image.png)
