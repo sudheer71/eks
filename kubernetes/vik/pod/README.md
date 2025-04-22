@@ -193,6 +193,6 @@ spec:
  - name: test 
    image: test 
    stdin: true 
-	tty: true
+   tty: true
 
 ```
