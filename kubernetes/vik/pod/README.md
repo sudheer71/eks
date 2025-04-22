@@ -190,8 +190,8 @@ metadata:
  name: test 
 spec:
  containers:
-- name: test 
-		image: test 
+ - name: test 
+   image: test 
 		stdin: true 
 		tty: true
 
