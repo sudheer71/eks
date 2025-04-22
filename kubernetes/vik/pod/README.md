@@ -192,7 +192,7 @@ spec:
  containers:
  - name: test 
    image: test 
-		stdin: true 
+stdin: true 
 		tty: true
 
 ```
