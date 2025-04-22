@@ -189,7 +189,7 @@ kind: Pod
 metadata:
  name: test 
 spec:
-	containers:
+ containers:
 	- name: test 
 		image: test 
 		stdin: true 
