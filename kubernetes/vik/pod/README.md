@@ -63,6 +63,7 @@ Kubernetes pod
 ## pod
 
 - **kubectl get pods**
+- **kubectl get all** [it will give a list of all the resources list]
 - **kubectl get pods,svc, namespace**
 - **kubectl get po,svc** —all-namespace All the namespaces
 - **kubectl get po,svc** -A [All the namespaces]
@@ -75,7 +76,7 @@ Kubernetes pod
 
 ## **Events**
 
-- **kubectl events** [Prints a table of the most important information about events. You can request events for a namespace, for all namespace, or filtered to only those pertaining to a specified resource.]
+- **kubectl events** [Prints a table of the most important information about events.]. You can request events for a namespace, for all namespaces, or filter them to only those pertaining to a specified resource.
 - **kubectl events -n <namespace-name>**
 - kubectl get event | grep -i ErrImagePull
 
@@ -109,6 +110,7 @@ Kubernetes pod
 
 - kubectl delete po/nginx
 - kubectl delete -f test.yaml
+- kubectl delete all [it will delete all the resources in the name space ]
 
 ## Dry run
 
@@ -161,13 +163,13 @@ status: {}
     
     ### Copying from pod to local
     
-    ```go
+    ```bash
     kubectl cp nginx:/usr/share/nginx/html/index.html -c c2 •/index.html
     ```
     
     ### Copying From local to pod
     
-    ```go
+    ```bash
     kubectl cp index.html nginx:/usr/share/nginx/html/index.html -c c1
     ```
     
@@ -183,16 +185,55 @@ status: {}
 kubectl run os --image=ubuntu -it
 ```
 
-```go
+```yaml
 apiVersion: v1
 kind: Pod 
 metadata:
  name: test 
 spec:
  containers:
- - name: test 
-   image: test 
+ - name: test
+   image: test
    stdin: true 
    tty: true
 
 ```
+
+## Run a temp pod
+
+- You can also fire up an interactive Pod within a Kubernetes cluster that is deleted once you exit the interactive session
+- --rm ensures that the pod is deleted when you exit the interactive shell
+- i/--tty: The combination of these two are what allows us to attach to an interactive session
+- -: Delimits the end of the kubecti run options from the positional arg (bash)
+- bash: Overrides the container's CMD. In this case, we want to launch bash as our container's command
+
+```bash
+kubectl run test-pod --image=alpine --rm -it 
+kubectl run my-shell --rm -it --image ubuntu -- bash
+kubectl run tmp-shell --rm -i --tty --image centos -- /bin/bash
+```
+
+## Image Pull Policy
+
+- Determines if the container image should be pulled from the repository prior to starting the container
+- If the tag is latest, k8s defaults imagePullPolicy to Always
+Otherwise, defaults imagePullPolicy to IfNotPresent.
+    
+    ![image.png](attachment:bd026c50-9555-4105-b54a-56c5bdf7812c:26b0a650-379f-4596-81c2-815dd35c0a1a.png)
+    
+
+```yaml
+apiVersion: vl 
+kind: Pod 
+metadata:
+  name: app
+spec:
+  containers:
+  - name: jira
+    image: [myregistry.com/jira:2.0](http://myregistry.com/jira:2.0)
+    imagePullPolicy: Always
+  imagePullSecrets:
+    - name: myregistry.com-registry-credentials
+```
+
+-
