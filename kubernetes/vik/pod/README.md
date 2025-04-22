@@ -187,7 +187,7 @@ kubectl run os --image=ubuntu -it
 apiVersion: v1
 kind: Pod 
 metadata:
-  name: test 
+ name: test 
 spec:
 	containers:
 	- name: test 
