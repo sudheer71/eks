@@ -219,7 +219,7 @@ kubectl run tmp-shell --rm -i --tty --image centos -- /bin/bash
 - If the tag is latest, k8s defaults imagePullPolicy to Always
 Otherwise, defaults imagePullPolicy to IfNotPresent.
     
-    ![image.png](/Users/muthyalasudheer/Documents/wrokPlace/code/eks/kubernetes/vik/images/Screenshot 2025-04-22 at 9.55.45 PM.png)
+    ![image.png](https://github.com/sudheer71/eks/blob/main/kubernetes/vik/images/Screenshot%202025-04-22%20at%209.55.45%E2%80%AFPM.png?raw=true)
     
 
 ```yaml
