@@ -38,18 +38,49 @@ Kubernetes pod
     ```
     
 
+## commands
+
+## Help
+
 - **kubectl -h**
+
+## Api-resources
+
+- kubectl api-resource
+
+## Run
+
 - **kubectl run -h**  Create and run a particular image in a pod.
-- **kubectl get pods**
+
+## Service
+
 - **kubectl get svc**
+
+## NameSpace
+
 - **kubectl get namespace**
-- **kubectl get pods,svc,namespace**
+
+## pod
+
+- **kubectl get pods**
+- **kubectl get pods,svc, namespace**
 - **kubectl get po,svc** —all-namespace All the namespaces
 - **kubectl get po,svc** -A [All the namespaces]
 - **kubectl get po | grep -i ng** [To get the list of pods nginx]
+- **kubectl get po —show-labels**
+
+## **Describe**
+
 - **kubectl describe po nginx**
+
+## **Events**
+
 - **kubectl events** [Prints a table of the most important information about events. You can request events for a namespace, for all namespace, or filtered to only those pertaining to a specified resource.]
 - **kubectl events -n <namespace-name>**
+- kubectl get event | grep -i ErrImagePull
+
+## logs
+
 - **kubectl logs** [Print the logs for a container in a pod or specified resource. If the pod has only one container, the container name is optional]
 - **kubectl logs po/nginx [stored logs]**
 - **kubectl logs -f po/ngnix [follow-up logs/streamed logs]**
@@ -58,10 +89,110 @@ Kubernetes pod
 - **kubectl logs po/ngnix —all-containers=true**
 - **kubectl logs po/nginx -c c1 [container-1]** to get logs from container-1
 - **kubectl logs po/nginx -c c2 [container-2]** to get logs from container-2
+
+## exec:
+
 - **kubectl exec -it po/nginx — sh**
 - **kubectl exec -it po/nginx — bash**
 - **kubectl exec -it po/nginx — hostname**
 - **kubectl exec -it po/nginx — curl [localhost](http://localhost)**
 - **kubectl exec -it po/nginx —sh -c c1 [container-1]**
 - **kubectl exec -it po/nginx —sh -c c2** **[container-1]**
--
+
+## Edit :
+
+- kubectl edit -h
+- kubectl edit po/nginx
+- 
+
+## Delete
+
+- kubectl delete po/nginx
+- kubectl delete -f test.yaml
+
+## Dry run
+
+- kubectl run nginx --image=nginx:1.19 --dry-run=client -o yaml
+
+## Explain :
+
+ **Describe the fields and structure of various resources**.
+
+This command describes the fields associated with each supported API resource. Fields are identified via a simple JSONPath identifier:
+
+```
+    <type>.<fieldName>[.<fieldName>]
+kubectl explain pod.spec.container.pots.....[etc]
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  name: nginx
+  labels:
+    run: nginx
+    env: qa
+    app: test  
+spec:
+  containers:
+  - image: nginx:1.19
+    name: nginx
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
+```
+
+- kubectl explain -h
+- kubectl explain pods
+- kubectl explain pods.spec
+- kubectl explain pods.spec.containers
+- kubectl explain pods.spec.containers.ports
+
+## show-labels
+
+- kubectl get pods — show-labeles
+
+## Copying files to and from containers
+
+- Sometimes we may want to add a file to a running container or retrieve a file from it during development phases
+- Kubectl offers the cp command to copy files or directories from your local computer to a container of any pod or from the container to your computer
+    
+    ### Copying from pod to local
+    
+    ```go
+    kubectl cp nginx:/usr/share/nginx/html/index.html -c c2 •/index.html
+    ```
+    
+    ### Copying From local to pod
+    
+    ```go
+    kubectl cp index.html nginx:/usr/share/nginx/html/index.html -c c1
+    ```
+    
+
+## Pods Declarative file with **stdin** and **tty** flags
+
+- Declarative file with **stdin** and **tty** flags
+    - -i, which makes sure STDIN is kept open. You need this for entering commands into the shell
+    - -t, which allocates a pseudo terminal (TTY)
+- This is required for some images with **bash** or **sh** as the default CMD
+
+```go
+kubectl run os --image=ubuntu -it
+```
+
+```go
+apiVersion: v1
+kind: Pod 
+metadata:
+	name: test 
+spec:
+	containers:
+	- name: test 
+		image: test 
+		stdin: true 
+		tty: true
+
+```
