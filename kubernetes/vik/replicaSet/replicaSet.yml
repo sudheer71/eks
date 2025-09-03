@@ -1,7 +1,7 @@
 appversion: apps/v1
 kind: 
 metadata:
-
+  name: nginx-replicaset
 spec:
   replicas: 3
   selector:
