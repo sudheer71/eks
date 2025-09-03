@@ -1,0 +1,11 @@
+ReplicaSets
+DevOps Made Easy
+.
+•
+ReplicaSets are a higher-level API that gives the ability to easily run multiple instances of a given pod ReplicaSets ensures that the exact number of pods(replicas) are always running in the cluster by replacing any failed pods with new ones
+The replica count is controlled by the replicas field in the resource definition file
+•
+•
+ReplicaSets uses set-based selectors to manage the pods
+The major difference between a replication controller and replica set is that the rolling-update command works with Replication Controllers, but won't work with a Replica Set. This is because Replica Sets are meant to be used as the backend for Deployments (to be covered next)
+• Deployments are recommended over ReplicaSets
