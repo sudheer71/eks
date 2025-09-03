@@ -1,7 +1,4 @@
 ReplicaSets
-DevOps Made Easy
-.
-•
 ReplicaSets are a higher-level API that gives the ability to easily run multiple instances of a given pod ReplicaSets ensures that the exact number of pods(replicas) are always running in the cluster by replacing any failed pods with new ones
 The replica count is controlled by the replicas field in the resource definition file
 •
