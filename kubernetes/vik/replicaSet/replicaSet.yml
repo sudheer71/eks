@@ -1,6 +1,7 @@
 appversion: apps/v1
 kind: 
 metadata:
+
 spec:
   replicas: 3
   selector:
