@@ -1,4 +1,4 @@
-
+appversion: apps/v1
 kind: 
 metadata:
 spec:
