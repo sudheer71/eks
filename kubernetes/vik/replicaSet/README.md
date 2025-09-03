@@ -1,3 +1,3 @@
 
 # ReplicationController
-- kubectl explain rc 
+- kubectl explain rc
