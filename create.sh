@@ -36,7 +36,7 @@ eksctl create nodegroup --cluster=mseks \
 #del () {
 #eksctl delete cluster --name mseks
 
-#}
+#}test
 
 $1 
 
