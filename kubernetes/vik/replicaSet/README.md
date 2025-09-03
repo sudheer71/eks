@@ -5,3 +5,7 @@
 # replicaset 
 - kubectl explain replicaset
 - kubectl describe replicaset
+
+
+
+the difference
