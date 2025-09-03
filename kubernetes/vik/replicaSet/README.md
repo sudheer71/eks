@@ -1,3 +1,3 @@
 
-# 
+# Replication
 - kubectl explain rc 
