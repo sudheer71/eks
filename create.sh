@@ -39,4 +39,4 @@ eksctl create nodegroup --cluster=mseks \
 #}test
 
 $1 
-
+test
