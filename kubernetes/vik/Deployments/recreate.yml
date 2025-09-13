@@ -1,0 +1,22 @@
+apiVersion: app/v1
+kind: Deployment
+metadata:
+	name: flask
+spec: 
+	replicas: 5
+	selector:
+		matchLabels:
+		app: flask
+	strategy:
+		type: Recreate
+	template:
+		metadata:
+			labels:
+				app: flask
+		spec:
+			containers:
+			- name: flask
+				image: nginx
+				ports:
+					conatainerPort:
+					- 80
