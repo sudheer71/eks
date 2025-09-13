@@ -12,3 +12,10 @@ spec:
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
